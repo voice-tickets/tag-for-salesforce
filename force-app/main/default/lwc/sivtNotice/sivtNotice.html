@@ -1,0 +1,40 @@
+<template>
+  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <lightning-button-icon
+        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        icon-name="utility:close"
+        variant="bare-inverse"
+        title="Close"
+        alternative-text="Close modal."
+        size="large"
+        onclick={handleClose}
+      >
+      </lightning-button-icon>
+      <div class="slds-modal__header">
+        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">更新通知</h1>
+      </div>
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <template for:each={notice} for:item="item">
+          <c-sivt-notice-item 
+              key={item.id} 
+              type-name={item.typeName}
+              ticket-id={item.ticketId}
+              title={item.title}
+              last-status={item.lastStatusName}
+              latest-status={item.latestStatusName}
+              status-up={item.statusUp}
+              status-down={item.statusDown}
+              ticket-delete={item.ticketDelete}
+              user-comment-add={item.userCommentAdd}
+              user-comment-update={item.userCommentUpdate}
+              vendor-comment-add={item.vendorCommentAdd}
+              vendor-comment-update={item.vendorCommentUpdate}
+          >
+          </c-sivt-notice-item>
+        </template>
+      </div>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

@@ -1,0 +1,32 @@
+<template>
+  <div class="sivt-notife-item">
+    <div class="sivt-notification-id">
+      {typeName}-{ticketId}
+    </div>
+    <div class="sivt-notification-title">
+      {title}
+    </div>
+    <div if:true={statusUp} class="sivt-notification-text">
+      {statusUpText}
+    </div>
+    <div if:true={statusDown} class="sivt-notification-text">
+      {statusDownText}
+    </div>
+    <div if:true={ticketDelete} class="sivt-notification-text">
+      {deleteText}
+    </div>
+    <div if:true={comment} class="sivt-notification-text">
+      {commentText}
+    </div>
+    <div class="sivt-notification-acctions">
+      <lightning-button
+        label="詳細確認"
+        icon-name="utility:outcome"
+        alternative-text="詳細確認"
+        title="VOICE TICKETS に遷移して変更詳細を確認する"
+        onclick={handleClickButtonC}
+      >
+      </lightning-button>
+    </div>
+  </div>
+</template>

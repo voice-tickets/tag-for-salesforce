@@ -1,0 +1,51 @@
+<template>
+  <!-- TODO: 画面に描画するUIを自由に編集する -->
+  <!-- ここにボタンやカードを追加 Start -->
+  <lightning-card title="アプリに関するご要望をお待ちしております" icon-name="custom:custom14">
+    <div class="slds-card__body slds-card__body--inner">
+      <lightning-button-group>
+        <lightning-button
+          label="要望投稿"
+          icon-name="utility:report_issue"
+          alternative-text="チケット登録"
+          title="チケット登録画面に遷移します"
+          onclick={handleClickButtonB}
+        >
+        </lightning-button>
+        <lightning-button
+          label="要望一覧"
+          icon-name="utility:kanban"
+          alternative-text="チケット一覧"
+          title="チケット一覧画面に遷移します"
+          onclick={handleClickButtonA}
+        >
+        </lightning-button>
+        <lightning-button
+          label="変更通知"
+          icon-name="utility:alert"
+          alternative-text="変更通知"
+          title="登録したチケットの変更通知を確認します"
+          onclick={handleClickButtonD}
+        >
+        </lightning-button>
+      </lightning-button-group>
+    </div>
+  </lightning-card>
+  <!-- ここにボタンやカードを追加 end -->
+  <!-- 以下は変更しない -->
+  <template if:true={message}>
+    <c-sivt-message
+      code={code}
+      message={message}
+      onclose={handleClearMessage}
+    >
+    </c-sivt-message>
+  </template>
+  <template if:true={myTickets}>
+    <c-sivt-notice
+      notice={myTickets}
+      onclose={handleClearNotice}
+    >
+    </c-sivt-notice>
+  </template>
+</template>
